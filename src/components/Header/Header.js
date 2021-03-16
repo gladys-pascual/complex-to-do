@@ -1,7 +1,8 @@
 import { useLocation, useHistory } from "react-router-dom";
 import "./Header.scss";
+import PropTypes from "prop-types";
 
-const Header = () => {
+const Header = ({ openCreateListModal }) => {
   const location = useLocation();
   const history = useHistory();
 
@@ -24,10 +25,7 @@ const Header = () => {
     <header>
       <div className="username-and-add-list">
         {location.pathname === "/todo" && (
-          <button
-            className="add-todo"
-            // onClick={() => openAddTransactionModal()}
-          >
+          <button className="add-todo" onClick={() => openCreateListModal()}>
             {" "}
             + Add a to-do list{" "}
           </button>
@@ -48,6 +46,10 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  openCreateListModal: PropTypes.func.isRequired,
 };
 
 export default Header;

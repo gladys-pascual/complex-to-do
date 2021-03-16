@@ -1,0 +1,30 @@
+@import "../../assets/variables.scss";
+
+.create-list-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .create-list {
+    padding: 20px;
+    border: 1px solid black;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    .list-input-title {
+      width: 300px;
+      height: 30px;
+    }
+    .create-list {
+      margin-top: 12px;
+      align-self: flex-end;
+      background-color: $theme-color;
+      color: white;
+      text-transform: uppercase;
+      padding: 8px;
+      border-radius: 5px;
+      border: white;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+  }
+}

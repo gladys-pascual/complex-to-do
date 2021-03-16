@@ -73,7 +73,7 @@ input[type="number"] {
       border-radius: 4px;
     }
     .submit:hover {
-      background: $link-hover;
+      background: $hover-color;
       cursor: pointer;
     }
 
@@ -96,7 +96,7 @@ input[type="number"] {
     letter-spacing: 1px;
   }
   .register a:hover {
-    color: $link-hover;
+    color: $hover-color;
     text-decoration: underline;
   }
 }

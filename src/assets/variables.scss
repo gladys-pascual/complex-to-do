@@ -1,9 +1,7 @@
 // Colors
 $text-color: black;
-$theme-color: #7bcbc4;
-$text-color-hover: lightcyan;
-$add-color: #83d97c;
-$link-hover: #51e4d7;
+$theme-color: rgb(255, 79, 78);
+$hover-color: rgb(255, 79, 78) + 50%;
 
 @mixin headings {
   font-size: 1.2em;

@@ -75,7 +75,7 @@ input[type="number"] {
   -webkit-margin-end: 0px;
           margin-inline-end: 0px;
   font-size: 14px;
-  border: 1px solid #7bcbc4;
+  border: 1px solid #ff4f4e;
   border-radius: 4px;
   padding: 8px 4px;
 }
@@ -109,7 +109,7 @@ input[type="number"] {
   -ms-flex-item-align: end;
       align-self: flex-end;
   width: 100px;
-  background: #7bcbc4;
+  background: #ff4f4e;
   color: white;
   border: none;
   padding: 12px;
@@ -119,7 +119,7 @@ input[type="number"] {
 }
 
 .form-wrapper .form .submit:hover {
-  background: #51e4d7;
+  background: #ff8180;
   cursor: pointer;
 }
 
@@ -136,14 +136,14 @@ input[type="number"] {
 
 .form-wrapper .register a {
   font-weight: 500;
-  color: #7bcbc4;
+  color: #ff4f4e;
   font-size: 1.05em;
   text-decoration: none;
   letter-spacing: 1px;
 }
 
 .form-wrapper .register a:hover {
-  color: #51e4d7;
+  color: #ff8180;
   text-decoration: underline;
 }
 /*# sourceMappingURL=logInAndSignUpForm.css.map */

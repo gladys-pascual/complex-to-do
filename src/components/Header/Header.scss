@@ -2,11 +2,14 @@
 
 header {
   display: flex;
+  padding-top: 40px;
+  width: 100%;
   justify-content: flex-end;
   .username-and-add-list {
     font-size: 12px;
     display: flex;
     align-items: center;
+
     @media screen and (max-width: 780px) {
       flex-direction: column;
       align-items: center;
@@ -26,11 +29,12 @@ header {
           margin: 12px 20px;
           border: none;
           background: none;
-          padding: 4px;
+          padding: 8px;
         }
         .logout:hover {
-          background-color: $text-color-hover;
-          padding: 4px;
+          color: white;
+          background-color: $hover-color;
+          padding: 8px;
           border-radius: 4px;
         }
       }
@@ -54,7 +58,7 @@ header {
 
     .add-todo {
       margin: 8px 12px;
-      color: $text-color-hover;
+      color: white;
       background-color: $theme-color;
       font-size: 16px;
       font-weight: 600;
@@ -66,7 +70,7 @@ header {
       text-transform: uppercase;
     }
     .add-transaction:hover {
-      background: #51e4d7;
+      background: $hover-color;
     }
     .add-transaction:active {
       transition: 0.3s all;

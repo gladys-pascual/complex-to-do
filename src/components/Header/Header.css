@@ -2,6 +2,8 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-top: 40px;
+  width: 100%;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -49,12 +51,13 @@ header .username-and-add-list .dropdown .dropdown-content .logout {
   margin: 12px 20px;
   border: none;
   background: none;
-  padding: 4px;
+  padding: 8px;
 }
 
 header .username-and-add-list .dropdown .dropdown-content .logout:hover {
-  background-color: lightcyan;
-  padding: 4px;
+  color: white;
+  background-color: #ff8180;
+  padding: 8px;
   border-radius: 4px;
 }
 
@@ -81,8 +84,8 @@ header .username-and-add-list .dropdown:hover .dropdown-content {
 
 header .username-and-add-list .add-todo {
   margin: 8px 12px;
-  color: lightcyan;
-  background-color: #7bcbc4;
+  color: white;
+  background-color: #ff4f4e;
   font-size: 16px;
   font-weight: 600;
   border: none;
@@ -94,7 +97,7 @@ header .username-and-add-list .add-todo {
 }
 
 header .username-and-add-list .add-transaction:hover {
-  background: #51e4d7;
+  background: #ff8180;
 }
 
 header .username-and-add-list .add-transaction:active {

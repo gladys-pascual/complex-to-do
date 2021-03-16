@@ -1,11 +1,16 @@
 import Header from "../../components/Header/Header";
+import PropTypes from "prop-types";
 
-const ToDo = () => {
+const ToDo = ({ openCreateListModal }) => {
   return (
     <section>
-      <Header />
+      <Header openCreateListModal={openCreateListModal} />
     </section>
   );
+};
+
+ToDo.propTypes = {
+  openCreateListModal: PropTypes.func.isRequired,
 };
 
 export default ToDo;
