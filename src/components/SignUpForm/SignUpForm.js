@@ -1,5 +1,6 @@
 import "../../assets/logInAndSignUpForm.scss";
 import { useForm } from "react-hook-form";
+import PropTypes from "prop-types";
 
 const SignUpForm = ({ handleSignUp }) => {
   const { register, handleSubmit, errors } = useForm({
@@ -102,6 +103,10 @@ const SignUpForm = ({ handleSignUp }) => {
       </form>
     </div>
   );
+};
+
+SignUpForm.propTypes = {
+  handleSignUp: PropTypes.func.isRequired,
 };
 
 export default SignUpForm;

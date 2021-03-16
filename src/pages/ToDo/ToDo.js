@@ -5,3 +5,5 @@ const ToDo = () => {
     </section>
   );
 };
+
+export default ToDo;

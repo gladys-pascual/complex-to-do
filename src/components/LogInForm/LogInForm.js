@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "../../assets/logInAndSignUpForm.scss";
+import PropTypes from "prop-types";
 
 const LogInForm = ({ handleLogIn }) => {
   const { register, handleSubmit, errors } = useForm({
@@ -75,10 +76,14 @@ const LogInForm = ({ handleLogIn }) => {
         </div>
       </form>
       <p className="register">
-        Don't have an account? <Link to="/signup">Register</Link>
+        Don&apos;t have an account? <Link to="/signup">Register</Link>
       </p>
     </div>
   );
+};
+
+LogInForm.propTypes = {
+  handleLogIn: PropTypes.func.isRequired,
 };
 
 export default LogInForm;
