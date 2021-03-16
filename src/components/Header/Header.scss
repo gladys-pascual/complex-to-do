@@ -1,0 +1,78 @@
+@import "../../assets/variables.scss";
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  .username-and-add-list {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 780px) {
+      flex-direction: column;
+      align-items: center;
+      .dropdown-wrapper {
+        order: 2;
+      }
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      padding: 20px;
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        .logout {
+          margin: 12px 20px;
+          border: none;
+          background: none;
+          padding: 4px;
+        }
+        .logout:hover {
+          background-color: $text-color-hover;
+          padding: 4px;
+          border-radius: 4px;
+        }
+      }
+
+      .dropbtn {
+        border: none;
+        background: none;
+        color: $text-color;
+        cursor: pointer;
+        padding: 0px 20px;
+      }
+      .username {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .add-todo {
+      margin: 8px 12px;
+      color: $text-color-hover;
+      background-color: $theme-color;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+      text-transform: uppercase;
+    }
+    .add-transaction:hover {
+      background: #51e4d7;
+    }
+    .add-transaction:active {
+      transition: 0.3s all;
+      transform: translateY(3px);
+      border: 1px solid transparent;
+      opacity: 0.8;
+    }
+  }
+}

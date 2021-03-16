@@ -1,7 +1,9 @@
+import Header from "../../components/Header/Header";
+
 const ToDo = () => {
   return (
     <section>
-      <h1>To do!! :)</h1>
+      <Header />
     </section>
   );
 };

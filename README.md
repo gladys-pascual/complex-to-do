@@ -10,6 +10,14 @@
       - Log in: if the username and password is correct, a token will be sent back. This token will be saved in the local storage and used to gain access to the to-do list data from the database.
       - Sign up: Using a third party library such as Auth0, a POST request will be made and the account will be created. Auth0 will send an email to verify the account and once verified, the user can then log in. The user is routed to an after sign up page for better user experience.
 
+- Logout
+  - Deletes saved data in local storage
+  - Re-directs to log in
+- Header
+
+  - Add to-do list
+  - Displays a welcome user on header by taking the text before @ on the entered email address.
+
 - create a list
 - add tasks to a list
 - add subtasks

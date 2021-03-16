@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.log-in-page,
+.sign-up-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 20vh;
+}
+
+.form-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-wrapper .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 250px;
+}
+
+.form-wrapper .form h1 {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.8em;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.form-wrapper .form .log-in,
+.form-wrapper .form .sign-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-wrapper .form .log-in input,
+.form-wrapper .form .sign-up input {
+  -webkit-margin-before: 0px;
+          margin-block-start: 0px;
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  font-size: 14px;
+  border: 1px solid #7bcbc4;
+  border-radius: 4px;
+  padding: 8px 4px;
+}
+
+.form-wrapper .form .log-in .error-message-hidden,
+.form-wrapper .form .sign-up .error-message-hidden {
+  visibility: hidden;
+}
+
+.form-wrapper .form .log-in .error-message,
+.form-wrapper .form .sign-up .error-message {
+  color: #bf1650;
+  font-size: 12px;
+  -webkit-margin-before: 0px;
+          margin-block-start: 0px;
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+}
+
+.form-wrapper .form .log-in .error-message::before,
+.form-wrapper .form .sign-up .error-message::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.form-wrapper .form .submit {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  width: 100px;
+  background: #7bcbc4;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  letter-spacing: 4px;
+  border-radius: 4px;
+}
+
+.form-wrapper .form .submit:hover {
+  background: #51e4d7;
+  cursor: pointer;
+}
+
+.form-wrapper .form .incorrect-details {
+  color: #bf1650;
+  font-weight: 800;
+  text-align: center;
+}
+
+.form-wrapper .form .incorrect-details::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.form-wrapper .register a {
+  font-weight: 500;
+  color: #7bcbc4;
+  font-size: 1.05em;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.form-wrapper .register a:hover {
+  color: #51e4d7;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=logInAndSignUpForm.css.map */
