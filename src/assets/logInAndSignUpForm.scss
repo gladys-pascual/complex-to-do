@@ -48,12 +48,7 @@ input[type="number"] {
         visibility: hidden;
       }
       .error-message {
-        color: #bf1650;
-        font-size: 12px;
-        margin-block-start: 0px;
-        margin-block-end: 0px;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
+        @include error-message;
       }
 
       .error-message::before {

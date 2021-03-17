@@ -3,6 +3,15 @@ $text-color: black;
 $theme-color: rgb(255, 79, 78);
 $hover-color: rgb(255, 79, 78) + 50%;
 
+@mixin error-message {
+  color: #bf1650;
+  font-size: 12px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 @mixin headings {
   font-size: 1.2em;
   font-weight: 400;
@@ -11,4 +20,18 @@ $hover-color: rgb(255, 79, 78) + 50%;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-align: center;
+}
+
+@mixin close-button {
+  font-size: 24px;
+  border: none;
+  outline: none;
+  color: lightgrey;
+  cursor: pointer;
+  margin: 16px 0 0 12px;
+  background: none;
+}
+
+@mixin close-button-hover {
+  color: #e51c23;
 }
