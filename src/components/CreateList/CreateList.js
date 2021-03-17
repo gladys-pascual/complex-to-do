@@ -33,7 +33,7 @@ const CreateList = ({ handleCreateList }) => {
           name="listTitle"
           aria-invalid={errors.listTitle ? "true" : "false"}
           ref={register({
-            required: "This is required.",
+            required: "To create a new list, this field is required.",
             minLength: {
               value: 2,
               message: "Minimum length is 2 characters.",
@@ -41,7 +41,7 @@ const CreateList = ({ handleCreateList }) => {
           })}
           type="text"
           className="list-input-title"
-          placeholder="List title..."
+          placeholder="Enter your list title..."
         />
         <div className="error-message-container">
           <p

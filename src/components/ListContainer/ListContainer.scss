@@ -1,0 +1,12 @@
+.list-container-wrapper {
+  display: flex;
+  margin-top: 50px;
+
+  justify-content: center;
+  .list-container {
+    width: 95vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

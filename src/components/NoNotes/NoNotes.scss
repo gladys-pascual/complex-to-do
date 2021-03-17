@@ -1,0 +1,10 @@
+@import "../../assets/variables.scss";
+.no-notes {
+  padding: 0 10%;
+  .no-notes-heading {
+    @include headings;
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+  }
+}
