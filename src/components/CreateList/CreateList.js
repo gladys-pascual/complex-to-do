@@ -1,7 +1,7 @@
 import "./CreateList.scss";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const CreateList = ({ handleCreateList }) => {
   const {
@@ -13,17 +13,17 @@ const CreateList = ({ handleCreateList }) => {
   } = useForm({
     mode: "onBlur",
   });
-  const [submittedData, setSubmittedData] = useState({});
 
   const onSubmitList = (data) => {
     handleCreateList(data.listTitle);
   };
 
+  //Resets the input (from react-hook-form)
   useEffect(() => {
     if (isSubmitSuccessful) {
-      reset({ ...submittedData });
+      reset();
     }
-  }, [isSubmitSuccessful, submittedData, reset]);
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <div className="create-list-wrapper">
