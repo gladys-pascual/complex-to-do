@@ -2,14 +2,13 @@
 
 header {
   display: flex;
-  padding-top: 40px;
+  padding: 40px 0px;
   width: 100%;
   justify-content: flex-end;
+  margin-bottom: 40px;
   .username-and-add-list {
-    font-size: 12px;
     display: flex;
     align-items: center;
-
     @media screen and (max-width: 780px) {
       flex-direction: column;
       align-items: center;
@@ -20,13 +19,14 @@ header {
     .dropdown {
       position: relative;
       display: inline-block;
-      padding: 20px;
+      padding: 12px;
 
       .dropdown-content {
         display: none;
         position: absolute;
         .logout {
-          margin: 12px 20px;
+          font-size: 16px;
+          margin: 12px 12px;
           border: none;
           background: none;
           padding: 8px;
@@ -47,36 +47,14 @@ header {
         padding: 0px 20px;
       }
       .username {
+        font-size: 16px;
         display: flex;
         align-items: center;
+        letter-spacing: 1px;
       }
     }
-
     .dropdown:hover .dropdown-content {
       display: block;
-    }
-
-    .add-todo {
-      margin: 8px 12px;
-      color: white;
-      background-color: $theme-color;
-      font-size: 16px;
-      font-weight: 600;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      outline: none;
-      text-transform: uppercase;
-    }
-    .add-transaction:hover {
-      background: $hover-color;
-    }
-    .add-transaction:active {
-      transition: 0.3s all;
-      transform: translateY(3px);
-      border: 1px solid transparent;
-      opacity: 0.8;
     }
   }
 }
