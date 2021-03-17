@@ -1,7 +1,7 @@
 // Colors
 $text-color: black;
 $theme-color: rgb(255, 79, 78);
-$hover-color: rgb(255, 79, 78) + 50%;
+$hover-color: rgb(255, 79, 78) - 20%;
 
 @mixin error-message {
   color: #bf1650;

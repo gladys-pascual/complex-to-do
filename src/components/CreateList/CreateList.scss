@@ -1,47 +1,62 @@
 @import "../../assets/variables.scss";
 
-.create-list {
+.create-list-wrapper {
   display: flex;
-  flex-direction: column;
-  .close-list-wrapper {
-    h1 {
-      @include headings;
-    }
-    align-self: flex-end;
-    margin-bottom: 20px;
-    .close-list {
-      @include close-button;
-    }
-    .close-list:hover {
-      @include close-button-hover;
-    }
-  }
-  .list-input-title {
-    height: 30px;
-    letter-spacing: 0.5px;
-    padding-left: 6px;
-  }
-  .error-message-hidden {
-    visibility: hidden;
-  }
-  .error-message {
-    @include error-message;
-  }
-
-  .error-message::before {
-    display: inline;
-    content: "⚠ ";
-  }
+  justify-content: center;
   .create-list {
-    margin-top: 16px;
-    align-self: flex-end;
-    background-color: $theme-color;
-    color: white;
-    text-transform: uppercase;
-    padding: 8px;
-    border-radius: 5px;
-    border: white;
-    letter-spacing: 2px;
-    font-weight: 300;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 1000px) {
+      width: 50vw;
+    }
+    @media screen and (max-width: 780px) {
+      width: 60vw;
+    }
+    @media screen and (max-width: 500px) {
+      width: 80vw;
+    }
+    .list-input-title {
+      height: 30px;
+      letter-spacing: 0.5px;
+      padding-left: 6px;
+    }
+    .error-message-hidden {
+      visibility: hidden;
+    }
+    .error-message {
+      @include error-message;
+    }
+
+    .error-message::before {
+      display: inline;
+      content: "⚠ ";
+    }
+    .create-list-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      .create-list {
+        width: 150px;
+        background-color: $theme-color;
+        color: white;
+        text-transform: uppercase;
+        padding: 8px;
+        border-radius: 5px;
+        border: white;
+        letter-spacing: 2px;
+        font-weight: 300;
+        .create-list-text {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          margin: 0px;
+        }
+      }
+      .create-list:hover {
+        background-color: $hover-color;
+        cursor: pointer;
+        font-weight: 600;
+      }
+    }
   }
 }

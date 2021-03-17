@@ -1,26 +1,33 @@
 import "./CreateList.scss";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 
-const CreateList = ({ handleCreateList, closeCreateListModal }) => {
-  const { register, handleSubmit, errors } = useForm({
+const CreateList = ({ handleCreateList }) => {
+  const {
+    register,
+    handleSubmit,
+    errors,
+    reset,
+    formState: { isSubmitSuccessful },
+  } = useForm({
     mode: "onBlur",
   });
+  const [submittedData, setSubmittedData] = useState({});
 
   const onSubmitList = (data) => {
     handleCreateList(data.listTitle);
   };
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ ...submittedData });
+    }
+  }, [isSubmitSuccessful, submittedData, reset]);
+
   return (
-    <div>
+    <div className="create-list-wrapper">
       <form className="create-list" onSubmit={handleSubmit(onSubmitList)}>
-        <div className="close-list-wrapper">
-          {/* <h1>Create a list</h1> */}
-          <button className="close-list" onClick={closeCreateListModal}>
-            {" "}
-            ✖{" "}
-          </button>
-        </div>
         <input
           id="listTitle"
           name="listTitle"
@@ -48,10 +55,11 @@ const CreateList = ({ handleCreateList, closeCreateListModal }) => {
             {errors.listTitle && errors.listTitle.message}
           </p>
         </div>
-        <button type="submit" className="create-list">
-          Create List
-        </button>
-        {/* <input type="submit" className="create-list" /> */}
+        <div className="create-list-wrapper">
+          <button type="submit" className="create-list">
+            <p className="create-list-text">Create List</p>
+          </button>
+        </div>
       </form>
     </div>
   );
@@ -59,7 +67,6 @@ const CreateList = ({ handleCreateList, closeCreateListModal }) => {
 
 CreateList.propTypes = {
   handleCreateList: PropTypes.func.isRequired,
-  closeCreateListModal: PropTypes.func.isRequired,
 };
 
 export default CreateList;

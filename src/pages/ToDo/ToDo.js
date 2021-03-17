@@ -1,61 +1,36 @@
 import Header from "../../components/Header/Header";
 import React, { useState } from "react";
-import Modal from "react-modal";
 import CreateList from "../../components/CreateList/CreateList";
 
 const ToDo = () => {
-  const [createListModalIsOpen, setCreateListModalIsOpen] = useState(false);
+  const idGenerator = Math.floor(Math.random() * 100);
   const [lists, setLists] = useState([
     {
-      id: "",
-      title: "",
+      id: `list-${idGenerator}`,
+      title: "Dummy List 1",
       tasks: [],
       subtasks: [],
     },
   ]);
 
-  // Create transaction modal
-  const openCreateListModal = () => {
-    setCreateListModalIsOpen(true);
-  };
-
-  const closeCreateListModal = () => {
-    setCreateListModalIsOpen(false);
-  };
-
   //Create List
   const handleCreateList = (title) => {
-    console.log(title);
     setLists((prevList) => [
       ...prevList,
       {
-        id: "",
+        id: `list-${idGenerator}`,
         title: title,
         tasks: [],
         subtasks: [],
       },
     ]);
-    closeCreateListModal();
   };
   console.log(lists);
 
   return (
     <section>
-      <Header openCreateListModal={openCreateListModal} />
-      <Modal
-        isOpen={createListModalIsOpen}
-        onRequestClose={closeCreateListModal}
-        contentLabel="Create List"
-        ariaHideApp={false}
-        className="create-list-modal"
-        overlayClassName="create-list-overlay"
-        parentSelector={() => document.querySelector("#root")}
-      >
-        <CreateList
-          handleCreateList={handleCreateList}
-          closeCreateListModal={closeCreateListModal}
-        />
-      </Modal>
+      <Header />
+      <CreateList handleCreateList={handleCreateList} />
     </section>
   );
 };

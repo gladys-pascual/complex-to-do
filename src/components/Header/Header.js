@@ -1,9 +1,7 @@
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Header.scss";
-import PropTypes from "prop-types";
 
-const Header = ({ openCreateListModal }) => {
-  const location = useLocation();
+const Header = () => {
   const history = useHistory();
 
   // use the first part of the email as a username
@@ -24,12 +22,6 @@ const Header = ({ openCreateListModal }) => {
   return (
     <header>
       <div className="username-and-add-list">
-        {location.pathname === "/todo" && (
-          <button className="add-todo" onClick={() => openCreateListModal()}>
-            {" "}
-            + Add a to-do list{" "}
-          </button>
-        )}
         <div className="dropdown-wrapper">
           <div className="dropdown">
             <button className="username dropbtn">
@@ -46,10 +38,6 @@ const Header = ({ openCreateListModal }) => {
       </div>
     </header>
   );
-};
-
-Header.propTypes = {
-  openCreateListModal: PropTypes.func.isRequired,
 };
 
 export default Header;
