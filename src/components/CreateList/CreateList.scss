@@ -17,20 +17,27 @@
       width: 80vw;
     }
     .list-input-title {
-      height: 30px;
+      height: 40px;
       letter-spacing: 0.5px;
-      padding-left: 6px;
+      padding-left: 12px;
+      border: $theme-color 1px solid;
+      border-radius: 8px;
+    }
+    .list-input-title:focus {
+      border: grey 1px solid;
     }
     .error-message-hidden {
       visibility: hidden;
     }
     .error-message {
       @include error-message;
+      color: grey;
+      padding: 8px 4px;
     }
 
     .error-message::before {
       display: inline;
-      content: "⚠ ";
+      // content: "⚠ ";
     }
     .create-list-wrapper {
       display: flex;
