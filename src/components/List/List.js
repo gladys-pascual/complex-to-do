@@ -17,16 +17,9 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
     mode: "onBlur",
   });
 
-  //Resets the input (from react-hook-form)
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
-    }
-  }, [isSubmitSuccessful, reset]);
-
-  const idGenerator = Math.floor(Math.random() * 100);
-
+  // Adding new task to list
   const onSubmitTask = (task) => {
+    const idGenerator = Math.floor(Math.random() * 100);
     const updatedTasks = [
       ...list.tasks,
       {
@@ -41,6 +34,27 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
       tasks: updatedTasks,
     });
   };
+
+  //Delete task
+  const handleDeleteTask = (id) => {
+    const filteredTasks = list.tasks.filter((task) => task.id !== id);
+    handleUpdateList({
+      ...list,
+      tasks: filteredTasks,
+    });
+  };
+
+  //Is task done?
+  const handleIsTaskDone = (isTaskDone) => {
+    const filteredTasks = list.tasks.filter((task) => task.id !== id);
+  };
+
+  //Resets the input (from react-hook-form)
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <div className="list-wrapper">
@@ -58,7 +72,13 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
         </div>
 
         {list.tasks.length > 0 &&
-          list.tasks.map((task) => <Task task={task} key={task.id} />)}
+          list.tasks.map((task) => (
+            <Task
+              task={task}
+              key={task.id}
+              handleDeleteTask={handleDeleteTask}
+            />
+          ))}
 
         <div className="create-task-wrapper">
           <form className="create-task" onSubmit={handleSubmit(onSubmitTask)}>

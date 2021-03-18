@@ -6,9 +6,9 @@ import ListContainer from "../../components/ListContainer/ListContainer";
 const ToDo = () => {
   const [lists, setLists] = useState([]);
 
-  const idGenerator = Math.floor(Math.random() * 100);
   //Create List
   const handleCreateList = (title) => {
+    const idGenerator = Math.floor(Math.random() * 100);
     setLists((prevList) => [
       ...prevList,
       {
@@ -34,8 +34,6 @@ const ToDo = () => {
       });
     });
   };
-
-  console.log(lists);
 
   return (
     <section>
