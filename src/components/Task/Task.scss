@@ -1,0 +1,32 @@
+@import "../../assets/variables.scss";
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .checkbox-and-task {
+    display: flex;
+    .is-task-done {
+      @include close-button;
+      font-size: 1em;
+      margin: 0px;
+    }
+    .task-text {
+      padding-left: 4px;
+    }
+  }
+  .edit-delete-button {
+    .delete-task,
+    .edit-task {
+      @include close-button;
+      font-size: 1em;
+      margin: 0px;
+    }
+    .delete-task:hover {
+      @include close-button-hover;
+    }
+    .edit-task:hover {
+      color: green;
+    }
+  }
+}

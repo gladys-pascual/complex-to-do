@@ -2,6 +2,7 @@ import "./List.scss";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import Task from "../Task/Task";
 
 const List = ({ list, handleDeleteList, handleUpdateList }) => {
   const { title, id } = list;
@@ -55,6 +56,9 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
             </button>
           </div>
         </div>
+
+        {list.tasks.length > 0 &&
+          list.tasks.map((task) => <Task task={task} key={task.id} />)}
 
         <div className="create-task-wrapper">
           <form className="create-task" onSubmit={handleSubmit(onSubmitTask)}>
