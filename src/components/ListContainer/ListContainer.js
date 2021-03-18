@@ -3,7 +3,7 @@ import "./ListContainer.scss";
 import PropTypes from "prop-types";
 import NoNotes from "../NoNotes/NoNotes";
 
-const ListContainer = ({ lists, handleDeleteList }) => {
+const ListContainer = ({ lists, handleDeleteList, handleUpdateList }) => {
   console.log(lists);
   return (
     <section className="list-container-wrapper">
@@ -14,6 +14,7 @@ const ListContainer = ({ lists, handleDeleteList }) => {
               list={list}
               key={list.id}
               handleDeleteList={handleDeleteList}
+              handleUpdateList={handleUpdateList}
             />
           ))
         ) : (
@@ -27,6 +28,7 @@ const ListContainer = ({ lists, handleDeleteList }) => {
 ListContainer.propTypes = {
   lists: PropTypes.array.isRequired,
   handleDeleteList: PropTypes.func.isRequired,
+  handleUpdateList: PropTypes.func.isRequired,
 };
 
 export default ListContainer;

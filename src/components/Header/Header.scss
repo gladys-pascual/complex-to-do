@@ -6,16 +6,20 @@ header {
   width: 100%;
   justify-content: flex-end;
   margin-bottom: 40px;
+
   .username-and-add-list {
     display: flex;
     align-items: center;
+
     @media screen and (max-width: 780px) {
       flex-direction: column;
       align-items: center;
+
       .dropdown-wrapper {
         order: 2;
       }
     }
+
     .dropdown {
       position: relative;
       display: inline-block;
@@ -24,6 +28,7 @@ header {
       .dropdown-content {
         display: none;
         position: absolute;
+
         .logout {
           font-size: 16px;
           margin: 12px 12px;
@@ -31,6 +36,7 @@ header {
           background: none;
           padding: 8px;
         }
+
         .logout:hover {
           color: white;
           background-color: $hover-color;
@@ -46,6 +52,7 @@ header {
         cursor: pointer;
         padding: 0px 20px;
       }
+
       .username {
         font-size: 16px;
         display: flex;
@@ -53,6 +60,7 @@ header {
         letter-spacing: 1px;
       }
     }
+
     .dropdown:hover .dropdown-content {
       display: block;
     }

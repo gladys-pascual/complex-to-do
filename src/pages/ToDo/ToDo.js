@@ -4,9 +4,9 @@ import CreateList from "../../components/CreateList/CreateList";
 import ListContainer from "../../components/ListContainer/ListContainer";
 
 const ToDo = () => {
-  const idGenerator = Math.floor(Math.random() * 100);
   const [lists, setLists] = useState([]);
 
+  const idGenerator = Math.floor(Math.random() * 100);
   //Create List
   const handleCreateList = (title) => {
     setLists((prevList) => [
@@ -26,11 +26,26 @@ const ToDo = () => {
     setLists(filteredList);
   };
 
+  //Update list when new task is added
+  const handleUpdateList = (updatedList) => {
+    setLists((prevList) => {
+      return prevList.map((list) => {
+        return list.id === updatedList.id ? updatedList : list;
+      });
+    });
+  };
+
+  console.log(lists);
+
   return (
     <section>
       <Header />
       <CreateList handleCreateList={handleCreateList} />
-      <ListContainer lists={lists} handleDeleteList={handleDeleteList} />
+      <ListContainer
+        lists={lists}
+        handleDeleteList={handleDeleteList}
+        handleUpdateList={handleUpdateList}
+      />
     </section>
   );
 };

@@ -33,7 +33,7 @@ const CreateList = ({ handleCreateList }) => {
           name="listTitle"
           aria-invalid={errors.listTitle ? "true" : "false"}
           ref={register({
-            required: "To create a new list, this field is required.",
+            required: "This field is required to create a new list.",
             minLength: {
               value: 2,
               message: "Minimum length is 2 characters.",

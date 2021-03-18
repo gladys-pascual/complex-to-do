@@ -3,28 +3,72 @@
 .list-wrapper {
   .list {
     width: 350px;
-    height: 300px;
+    min-height: 300px;
     border: 1px solid ($theme-color + 20%);
     margin: 20px 10px;
     padding: 4px 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px ($theme-color - 10%);
+
     @media screen and (max-width: 400px) {
       width: 300px;
     }
-    .delete-list-wrapper {
+    .title-and-delete-list {
       display: flex;
-      justify-content: flex-end;
-      .delete-list {
-        @include close-button;
+      justify-content: space-between;
+      align-items: center;
+
+      .list-title {
+        margin: 0px;
+        padding-top: 16px;
+        @include headings;
       }
-      .delete-list:hover {
-        @include close-button-hover;
+
+      .delete-list-wrapper {
+        display: flex;
+        justify-content: flex-end;
+
+        .delete-list {
+          @include close-button;
+        }
+
+        .delete-list:hover {
+          @include close-button-hover;
+        }
       }
     }
-    .list-title {
-      margin: 0px;
-      @include headings;
+
+    .create-task-wrapper {
+      padding-top: 8px;
+
+      .create-task {
+        display: flex;
+        justify-content: center;
+
+        .task-title {
+          height: 40px;
+          letter-spacing: 0.5px;
+          padding-left: 12px;
+          border: $theme-color 1px solid;
+          border-radius: 8px;
+          width: 300px;
+        }
+        .task-title:focus {
+          border: grey 1px solid;
+        }
+        .error-message-hidden {
+          visibility: hidden;
+        }
+        .error-message {
+          @include error-message;
+          color: grey;
+          padding: 8px 4px;
+        }
+
+        .error-message::before {
+          display: inline;
+        }
+      }
     }
   }
 }
