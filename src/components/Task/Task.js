@@ -1,7 +1,7 @@
 import "./Task.scss";
 import PropTypes from "prop-types";
 
-const Task = ({ task }) => {
+const Task = ({ task, handleDeleteTask }) => {
   return (
     <div className="task">
       <div className="checkbox-and-task">
@@ -18,7 +18,13 @@ const Task = ({ task }) => {
             <span className="sr-only">Edit</span>
           </i>
         </button>
-        <button className="delete-task"> ✖</button>
+        <button
+          className="delete-task"
+          onClick={() => handleDeleteTask(task.id)}
+        >
+          {" "}
+          ✖
+        </button>
       </div>
     </div>
   );
@@ -26,5 +32,6 @@ const Task = ({ task }) => {
 
 Task.propTypes = {
   task: PropTypes.object.isRequired,
+  handleDeleteTask: PropTypes.func.isRequired,
 };
 export default Task;
