@@ -14,6 +14,10 @@
     .task-text {
       padding-left: 4px;
     }
+    .task-done {
+      color: grey;
+      text-decoration: line-through;
+    }
   }
   .edit-delete-button {
     .delete-task,

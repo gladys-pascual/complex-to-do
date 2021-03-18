@@ -45,8 +45,14 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
   };
 
   //Is task done?
-  const handleIsTaskDone = (isTaskDone) => {
-    const filteredTasks = list.tasks.filter((task) => task.id !== id);
+  const handleIsTaskDone = (id) => {
+    const updatedTasks = list.tasks.map((task) => {
+      return task.id === id ? { ...task, isDone: !task.isDone } : task;
+    });
+    handleUpdateList({
+      ...list,
+      tasks: updatedTasks,
+    });
   };
 
   //Resets the input (from react-hook-form)
@@ -77,6 +83,7 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
               task={task}
               key={task.id}
               handleDeleteTask={handleDeleteTask}
+              handleIsTaskDone={handleIsTaskDone}
             />
           ))}
 
