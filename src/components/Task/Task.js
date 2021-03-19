@@ -27,7 +27,6 @@ const Task = ({ task, handleDeleteTask, handleIsTaskDone }) => {
           className="delete-task"
           onClick={() => handleDeleteTask(task.id)}
         >
-          {" "}
           ✖
         </button>
       </div>

@@ -1,21 +1,13 @@
 import "./List.scss";
 import PropTypes from "prop-types";
-import { useForm } from "react-hook-form";
-import { useEffect } from "react";
 import Task from "../Task/Task";
+import CreateTask from "../CreateTask/CreateTask";
+import CreateSubtask from "../CreateSubtask/CreateSubtask";
+import React from "react";
+import Subtask from "../Subtask/Subtask";
 
 const List = ({ list, handleDeleteList, handleUpdateList }) => {
   const { title, id } = list;
-
-  const {
-    register,
-    handleSubmit,
-    errors,
-    reset,
-    formState: { isSubmitSuccessful },
-  } = useForm({
-    mode: "onBlur",
-  });
 
   // Adding new task to list
   const onSubmitTask = (task) => {
@@ -23,7 +15,7 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
     const updatedTasks = [
       ...list.tasks,
       {
-        label: task.taskTitle,
+        label: task.taskLabel,
         isDone: false,
         id: `task-${idGenerator}`,
       },
@@ -38,29 +30,80 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
   //Delete task
   const handleDeleteTask = (id) => {
     const filteredTasks = list.tasks.filter((task) => task.id !== id);
+    const filteredSubtask = list.subtasks.filter(
+      (subtask) => subtask.taskId !== id
+    );
     handleUpdateList({
       ...list,
       tasks: filteredTasks,
+      subtasks: filteredSubtask,
+    });
+  };
+
+  //Delete subtask
+  const handleDeleteSubtask = (id) => {
+    const filteredSubtask = list.subtasks.filter(
+      (subtask) => subtask.id !== id
+    );
+    handleUpdateList({
+      ...list,
+      subtasks: filteredSubtask,
     });
   };
 
   //Is task done?
   const handleIsTaskDone = (id) => {
+    const selectedTask = list.tasks.find((task) => task.id === id);
+
+    let updatedSubtasks = list.subtasks;
+    if (!selectedTask.isDone) {
+      updatedSubtasks = list.subtasks.map((subtask) => {
+        return subtask.taskId === id ? { ...subtask, isDone: true } : subtask;
+      });
+    }
+
     const updatedTasks = list.tasks.map((task) => {
       return task.id === id ? { ...task, isDone: !task.isDone } : task;
     });
+
     handleUpdateList({
       ...list,
       tasks: updatedTasks,
+      subtasks: updatedSubtasks,
     });
   };
 
-  //Resets the input (from react-hook-form)
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
-    }
-  }, [isSubmitSuccessful, reset]);
+  //Is subtask done?
+  const handleIsSubtaskDone = (id) => {
+    const updatedSubtask = list.subtasks.map((subtask) => {
+      return subtask.id === id
+        ? { ...subtask, isDone: !subtask.isDone }
+        : subtask;
+    });
+    handleUpdateList({
+      ...list,
+      subtasks: updatedSubtask,
+    });
+  };
+
+  // Adding new subtasks
+  const onSubmitSubtask = (subtask, taskId) => {
+    const idGenerator = Math.floor(Math.random() * 100);
+    const updatedSubtasks = [
+      ...list.subtasks,
+      {
+        label: subtask.subtaskLabel,
+        isDone: false,
+        id: `subtask-${idGenerator}`,
+        taskId: taskId,
+      },
+    ];
+
+    handleUpdateList({
+      ...list,
+      subtasks: updatedSubtasks,
+    });
+  };
 
   return (
     <div className="list-wrapper">
@@ -79,45 +122,30 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
 
         {list.tasks.length > 0 &&
           list.tasks.map((task) => (
-            <Task
-              task={task}
-              key={task.id}
-              handleDeleteTask={handleDeleteTask}
-              handleIsTaskDone={handleIsTaskDone}
-            />
-          ))}
+            <React.Fragment key={task.id}>
+              <Task
+                task={task}
+                handleDeleteTask={handleDeleteTask}
+                handleIsTaskDone={handleIsTaskDone}
+              />
 
-        <div className="create-task-wrapper">
-          <form className="create-task" onSubmit={handleSubmit(onSubmitTask)}>
-            <input
-              id="taskTitle"
-              name="taskTitle"
-              aria-invalid={errors.taskTitle ? "true" : "false"}
-              ref={register({
-                required: "This field is required to create a task.",
-                minLength: {
-                  value: 2,
-                  message: "Minimum length is 2 characters.",
-                },
-              })}
-              type="text"
-              className="task-title"
-              placeholder="Enter your task..."
-            />
-            <div className="error-message-container">
-              <p
-                className={
-                  errors.listTitle
-                    ? "error-message"
-                    : "error-message-hidden error-message"
-                }
-                role="alert"
-              >
-                {errors.listTitle && errors.listTitle.message}
-              </p>
-            </div>
-          </form>
-        </div>
+              {list.subtasks
+                .filter((subtask) => subtask.taskId === task.id)
+                .map((subtask) => (
+                  <Subtask
+                    subtask={subtask}
+                    key={subtask.id}
+                    handleDeleteSubtask={handleDeleteSubtask}
+                    handleIsSubtaskDone={handleIsSubtaskDone}
+                  />
+                ))}
+
+              <CreateSubtask
+                onSubmitSubtask={(subtask) => onSubmitSubtask(subtask, task.id)}
+              />
+            </React.Fragment>
+          ))}
+        <CreateTask onSubmitTask={onSubmitTask} />
       </div>
     </div>
   );

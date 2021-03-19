@@ -1,0 +1,22 @@
+@import "../../assets/variables.scss";
+
+.create-task-wrapper {
+  padding-top: 16px;
+
+  .create-task {
+    display: flex;
+    justify-content: center;
+
+    .task-title {
+      height: 40px;
+      letter-spacing: 0.5px;
+      padding-left: 12px;
+      border: $theme-color 1px solid;
+      border-radius: 8px;
+      width: 300px;
+    }
+    .task-title:focus {
+      border: grey 1px solid;
+    }
+  }
+}
