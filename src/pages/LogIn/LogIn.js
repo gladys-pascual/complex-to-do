@@ -6,7 +6,7 @@ const LogIn = () => {
   const history = useHistory();
   const handleLogIn = (data) => {
     const userInfo = data;
-    localStorage.setItem("log in user info", JSON.stringify(userInfo));
+    localStorage.setItem("log_in_user_info", JSON.stringify(userInfo));
     history.push(`/todo`);
   };
 

@@ -5,7 +5,7 @@ const Header = () => {
   const history = useHistory();
 
   // use the first part of the email as a username
-  const email = JSON.parse(window.localStorage.getItem("log in user info"))
+  const email = JSON.parse(window.localStorage.getItem("log_in_user_info"))
     .email;
   const getUsername = (email) => {
     const emailSplit = email.split("@");
