@@ -1,0 +1,21 @@
+@import "../../assets/variables.scss";
+
+.create-subtask-wrapper {
+  padding: 0px 16px 0px 28px;
+  .create-subtask {
+    display: flex;
+    justify-content: center;
+
+    .subtask-label {
+      height: 28px;
+      letter-spacing: 0.5px;
+      padding-left: 12px;
+      border: $theme-color-2 1px solid;
+      border-radius: 8px;
+      width: 300px;
+    }
+    .subtask-label:focus {
+      border: grey 1px solid;
+    }
+  }
+}
