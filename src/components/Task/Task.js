@@ -9,7 +9,7 @@ const Task = ({ task, handleDeleteTask, handleIsTaskDone }) => {
           className="is-task-done"
           onClick={() => handleIsTaskDone(task.id)}
         >
-          <i className="far fa-square">
+          <i className={task.isDone ? "far fa-check-square" : "far fa-square"}>
             <span className="sr-only">Checkbox</span>
           </i>
         </button>

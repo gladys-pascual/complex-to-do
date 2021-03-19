@@ -4,9 +4,14 @@ import "./Header.scss";
 const Header = () => {
   const history = useHistory();
 
+  const loginInfo = localStorage.getItem("log_in_user_info");
+
+  if (!loginInfo) {
+    return null;
+  }
+
   // use the first part of the email as a username
-  const email = JSON.parse(window.localStorage.getItem("log_in_user_info"))
-    .email;
+  const email = JSON.parse(loginInfo).email;
   const getUsername = (email) => {
     const emailSplit = email.split("@");
     return emailSplit[0];

@@ -12,6 +12,8 @@ const App = () => {
   useEffect(() => {
     if (!localStorage.getItem("log_in_user_info")) {
       history.push("/login");
+    } else {
+      history.push("/todo");
     }
   }, [history]);
 
