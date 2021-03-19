@@ -1,0 +1,23 @@
+@import "../../assets/variables.scss";
+
+.edit-task-wrapper {
+  padding-top: 16px;
+
+  .edit-task {
+    display: flex;
+    justify-content: center;
+
+    .edit {
+      height: 28px;
+      letter-spacing: 0.5px;
+      padding-left: 12px;
+
+      border: $theme-color 1px solid;
+      border-radius: 8px;
+      width: 200px;
+    }
+    .edit:focus {
+      border: grey 1px solid;
+    }
+  }
+}

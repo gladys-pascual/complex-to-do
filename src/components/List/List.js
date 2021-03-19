@@ -86,6 +86,18 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
     });
   };
 
+  // Update task label
+  const handleEditTaskLabel = (newTaskLabel, taskId) => {
+    const updatedTasks = list.tasks.map((task) => {
+      return task.id === taskId ? { ...task, label: newTaskLabel } : task;
+    });
+
+    handleUpdateList({
+      ...list,
+      tasks: updatedTasks,
+    });
+  };
+
   // Adding new subtasks
   const onSubmitSubtask = (subtask, taskId) => {
     const idGenerator = Math.floor(Math.random() * 100);
@@ -127,6 +139,9 @@ const List = ({ list, handleDeleteList, handleUpdateList }) => {
                 task={task}
                 handleDeleteTask={handleDeleteTask}
                 handleIsTaskDone={handleIsTaskDone}
+                handleEditTask={(newTaskLabel) =>
+                  handleEditTaskLabel(newTaskLabel, task.id)
+                }
               />
 
               {list.subtasks
