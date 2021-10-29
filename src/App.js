@@ -4,18 +4,19 @@ import LogIn from "./pages/LogIn/LogIn";
 import SignUp from "./pages/SignUp/SignUp";
 import AfterSignUp from "./pages/AfterSignUp/AfterSignUp";
 import ToDo from "./pages/ToDo/ToDo";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const App = () => {
   const history = useHistory();
+  history.push("/todo");
 
-  useEffect(() => {
-    if (!localStorage.getItem("log_in_user_info")) {
-      history.push("/login");
-    } else {
-      history.push("/todo");
-    }
-  }, [history]);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("log_in_user_info")) {
+  //     history.push("/login");
+  //   } else {
+  //     history.push("/todo");
+  //   }
+  // }, [history]);
 
   return (
     <section>

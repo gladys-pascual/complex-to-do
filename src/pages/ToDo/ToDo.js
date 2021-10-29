@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import React, { useState } from "react";
 import CreateList from "../../components/CreateList/CreateList";
 import ListContainer from "../../components/ListContainer/ListContainer";
+import "./ToDo.scss";
 
 const ToDo = () => {
   const [lists, setLists] = useState([]);
@@ -36,7 +37,7 @@ const ToDo = () => {
   };
 
   return (
-    <section>
+    <section className="todo">
       <Header />
       <CreateList handleCreateList={handleCreateList} />
       <ListContainer
